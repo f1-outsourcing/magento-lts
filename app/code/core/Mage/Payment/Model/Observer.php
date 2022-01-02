@@ -182,4 +182,14 @@ class Mage_Payment_Model_Observer
             }
         }
     }
+
+    public function cronRecurring($observer)
+    {
+
+        Mage::log('recurring cron +++ start ++++ '.__METHOD__);
+        Mage::helper('payment')->getMethodInstance('banktransfer')->test();
+        Mage::log('recurring cron +++ end ++++ '.__METHOD__);
+
+        return;
+    }
 }

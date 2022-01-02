@@ -212,4 +212,22 @@
             </cashondelivery>
         </payment>
     </default>
+    <crontab>
+        <jobs>
+            <payment_recurring_charge>
+                <schedule>
+                    <cron_expr>* * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <!--
+                    <cron_expr>*/5 * * * *</cron_expr>
+                    Problems getting the correct method to be run
+                    <model>payment/method/banktransfer::test</model>
+                    <model>payment/method_banktransfer::test</model>
+                    -->
+                    <model>payment/observer::cronRecurring</model>
+                </run>
+            </payment_recurring_charge>
+        </jobs>
+    </crontab>
 </config>
