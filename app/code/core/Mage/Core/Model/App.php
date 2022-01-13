@@ -790,7 +790,7 @@ class Mage_Core_Model_App
      */
     public function setErrorHandler($handler)
     {
-        set_error_handler($handler);
+        if (function_exists('set_error_handler')) set_error_handler($handler);
         return $this;
     }
 
